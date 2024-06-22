@@ -1,0 +1,19 @@
+@page {
+  size: letter portrait;
+}
+
+@page :left {
+  margin-left: 1in;
+}
+
+@page :right {
+  margin-left: 1in;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tfoot {
+  display: table-footer-group;
+}
