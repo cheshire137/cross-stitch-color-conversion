@@ -1,11 +1,13 @@
-import {useMemo} from 'react'
+import {useMemo, useState} from 'react'
 import dmcNamedColorCodes from './assets/dmc-color-codes-names.json'
 import dmcOldNewJpCoatsColors from './assets/dmc-old-new-jp-coats-colors.json'
 import './App.css'
 import {normalizeDmcCode} from './utils'
 import type {EmbroideryFlossColor} from './types'
+import {TableRow} from './TableRow'
 
 function App() {
+  const [onlyJpCoatsOld, setOnlyJpCoatsOld] = useState(false)
   const dataByDmcCode = useMemo<Record<string, EmbroideryFlossColor>>(() => {
     const result: Record<string, EmbroideryFlossColor> = {}
     dmcNamedColorCodes.forEach(data => {
@@ -23,6 +25,13 @@ function App() {
   return (
     <>
       <h1>Embroidery floss color conversion</h1>
+      <fieldset>
+        <legend>Filters</legend>
+        <label>
+          <input checked={onlyJpCoatsOld} onChange={() => setOnlyJpCoatsOld(!onlyJpCoatsOld)} type="checkbox" />
+          Only J&amp;P Coats (old)
+        </label>
+      </fieldset>
       <table>
         <thead>
           <tr>
@@ -35,16 +44,9 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {colors.map(data => (
-            <tr key={data.dmcCode}>
-              <td>{data.dmcCode}</td>
-              <td>{data.dmcName}</td>
-              <td>{data.jpCoatsOld}</td>
-              <td>{data.jpCoatsNew}</td>
-              <td>{data.anchorCode}</td>
-              <td style={{backgroundColor: data.hexCode}}></td>
-            </tr>
-          ))}
+          {colors.map(({dmcCode, ...data}) =>
+            <TableRow key={dmcCode} dmcCode={dmcCode} onlyJpCoatsOld={onlyJpCoatsOld} {...data} />
+          )}
         </tbody>
       </table>
     </>
