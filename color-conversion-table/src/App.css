@@ -17,3 +17,9 @@ thead {
 tfoot {
   display: table-footer-group;
 }
+
+@media print {
+  .noprint {
+    display: none;
+  }
+}

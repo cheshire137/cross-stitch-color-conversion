@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <h1>Embroidery floss color conversion</h1>
-      <fieldset>
+      <fieldset className="noprint">
         <legend>Filters</legend>
         <label>
           <input checked={onlyJpCoatsOld} onChange={() => setOnlyJpCoatsOld(!onlyJpCoatsOld)} type="checkbox" />
