@@ -2,19 +2,8 @@ import {useMemo} from 'react'
 import dmcNamedColorCodes from './assets/dmc-color-codes-names.json'
 import dmcOldNewJpCoatsColors from './assets/dmc-old-new-jp-coats-colors.json'
 import './App.css'
-
-interface EmbroideryFlossColor {
-  dmcCode: string
-  dmcName: string
-  hexCode?: string
-  jpCoatsOld?: string
-  jpCoatsNew?: string
-  anchorCode?: string
-}
-
-const normalizeDmcCode = (dmcCode: string) => {
-  return dmcCode.trim().toLowerCase()
-}
+import {normalizeDmcCode} from './utils'
+import type {EmbroideryFlossColor} from './types'
 
 function App() {
   const dataByDmcCode = useMemo<Record<string, EmbroideryFlossColor>>(() => {
