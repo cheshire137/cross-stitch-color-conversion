@@ -7,7 +7,8 @@ import type {EmbroideryFlossColor} from './types'
 import {TableRow} from './TableRow'
 
 function App() {
-  const [onlyJpCoatsOld, setOnlyJpCoatsOld] = useState(false)
+  const [requireJpCoatsOld, setRequireJpCoatsOld] = useState(false)
+  const [requireAnchor, setRequireAnchor] = useState(false)
   const dataByDmcCode = useMemo<Record<string, EmbroideryFlossColor>>(() => {
     const result: Record<string, EmbroideryFlossColor> = {}
     dmcNamedColorCodes.forEach(data => {
@@ -28,8 +29,12 @@ function App() {
       <fieldset className="noprint">
         <legend>Filters</legend>
         <label>
-          <input checked={onlyJpCoatsOld} onChange={() => setOnlyJpCoatsOld(!onlyJpCoatsOld)} type="checkbox" />
-          Only J&amp;P Coats (old)
+          <input checked={requireJpCoatsOld} onChange={() => setRequireJpCoatsOld(!requireJpCoatsOld)} type="checkbox" />
+          J&amp;P Coats (old)
+        </label>
+        <label>
+          <input checked={requireAnchor} onChange={() => setRequireAnchor(!requireAnchor)} type="checkbox" />
+          Anchor
         </label>
       </fieldset>
       <table>
@@ -45,7 +50,7 @@ function App() {
         </thead>
         <tbody>
           {colors.map(({dmcCode, ...data}) =>
-            <TableRow key={dmcCode} dmcCode={dmcCode} onlyJpCoatsOld={onlyJpCoatsOld} {...data} />
+            <TableRow key={dmcCode} dmcCode={dmcCode} requireAnchor={requireAnchor} requireJpCoatsOld={requireJpCoatsOld} {...data} />
           )}
         </tbody>
       </table>
