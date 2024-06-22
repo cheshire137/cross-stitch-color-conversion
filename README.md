@@ -1,6 +1,16 @@
 # cross-stitch
 Useful cross stitch tools I collect, plus eventually photos of my projects.
 
+## Printer-friendly color conversion table
+
+### How to develop
+
+```sh
+cd color-conversion-table
+npm install
+npm run dev
+```
+
 ## Thanks
 
 Thanks to these data sources for color equivalents across brands:
