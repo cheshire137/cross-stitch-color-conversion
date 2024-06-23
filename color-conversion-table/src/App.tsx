@@ -22,18 +22,29 @@ function App() {
     })
     return result
   }, [dmcNamedColorCodes, dmcOldNewJpCoatsColors])
-  const colors = useMemo<EmbroideryFlossColor[]>(() => Object.values(dataByDmcCode), [dataByDmcCode])
+  const colors = useMemo<EmbroideryFlossColor[]>(
+    () => Object.values(dataByDmcCode),
+    [dataByDmcCode]
+  )
   return (
     <>
       <h1>Embroidery floss color conversion</h1>
       <fieldset className="noprint">
         <legend>Filters</legend>
         <label>
-          <input checked={requireJpCoatsOld} onChange={() => setRequireJpCoatsOld(!requireJpCoatsOld)} type="checkbox" />
+          <input
+            checked={requireJpCoatsOld}
+            onChange={() => setRequireJpCoatsOld(!requireJpCoatsOld)}
+            type="checkbox"
+          />
           J&amp;P Coats (old)
         </label>
         <label>
-          <input checked={requireAnchor} onChange={() => setRequireAnchor(!requireAnchor)} type="checkbox" />
+          <input
+            checked={requireAnchor}
+            onChange={() => setRequireAnchor(!requireAnchor)}
+            type="checkbox"
+          />
           Anchor
         </label>
       </fieldset>
@@ -49,9 +60,15 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {colors.map(({dmcCode, ...data}) =>
-            <TableRow key={dmcCode} dmcCode={dmcCode} requireAnchor={requireAnchor} requireJpCoatsOld={requireJpCoatsOld} {...data} />
-          )}
+          {colors.map(({dmcCode, ...data}) => (
+            <TableRow
+              key={dmcCode}
+              dmcCode={dmcCode}
+              requireAnchor={requireAnchor}
+              requireJpCoatsOld={requireJpCoatsOld}
+              {...data}
+            />
+          ))}
         </tbody>
       </table>
     </>

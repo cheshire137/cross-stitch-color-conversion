@@ -5,7 +5,16 @@ interface TableRowProps extends EmbroideryFlossColor {
   requireJpCoatsOld?: boolean
 }
 
-export const TableRow = ({dmcCode, dmcName, jpCoatsNew, jpCoatsOld, anchorCode, hexCode, requireAnchor=false, requireJpCoatsOld=false}: TableRowProps) => {
+export const TableRow = ({
+  dmcCode,
+  dmcName,
+  jpCoatsNew,
+  jpCoatsOld,
+  anchorCode,
+  hexCode,
+  requireAnchor = false,
+  requireJpCoatsOld = false,
+}: TableRowProps) => {
   if (requireAnchor && anchorCode === undefined) return null
   if (requireJpCoatsOld && jpCoatsOld === undefined) return null
   return (

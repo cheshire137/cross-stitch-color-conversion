@@ -11,6 +11,8 @@ npm install
 npm run dev
 ```
 
+Run `npm run format` to auto-format code.
+
 ## Thanks
 
 Thanks to these data sources for color equivalents across brands:
