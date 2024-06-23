@@ -8,7 +8,7 @@ import {HideColorsProvider} from './HideColorsContext'
 import {RequireJpCoatsOldProvider} from './RequireJpCoatsOldContext'
 import {Table} from './Table'
 import {Filters} from './Filters'
-import { RequireAnchorProvider } from './RequireAnchorContext'
+import {RequireAnchorProvider} from './RequireAnchorContext'
 
 function App() {
   const dataByDmcCode = useMemo<Record<string, EmbroideryFlossColor>>(() => {

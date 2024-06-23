@@ -1,6 +1,6 @@
 import {TableRow} from './TableRow'
 import type {EmbroideryFlossColor} from './types'
-import { useHideColors } from './HideColorsContext'
+import {useHideColors} from './HideColorsContext'
 import './Table.css'
 
 interface TableProps {
@@ -23,11 +23,7 @@ export const Table = ({colors}: TableProps) => {
       </thead>
       <tbody>
         {colors.map(({dmcCode, ...data}) => (
-          <TableRow
-            key={dmcCode}
-            dmcCode={dmcCode}
-            {...data}
-          />
+          <TableRow key={dmcCode} dmcCode={dmcCode} {...data} />
         ))}
       </tbody>
     </table>

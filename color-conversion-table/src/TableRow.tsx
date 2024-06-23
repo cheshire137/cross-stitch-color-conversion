@@ -1,10 +1,9 @@
 import type {EmbroideryFlossColor} from './types'
-import { useHideColors } from './HideColorsContext'
-import { useRequireAnchor } from './RequireAnchorContext'
+import {useHideColors} from './HideColorsContext'
+import {useRequireAnchor} from './RequireAnchorContext'
 import {useRequireJpCoatsOld} from './RequireJpCoatsOldContext'
 
-interface TableRowProps extends EmbroideryFlossColor {
-}
+interface TableRowProps extends EmbroideryFlossColor {}
 
 export const TableRow = ({
   dmcCode,

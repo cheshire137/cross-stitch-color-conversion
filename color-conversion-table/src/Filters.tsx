@@ -1,6 +1,6 @@
-import {useRequireJpCoatsOld} from "./RequireJpCoatsOldContext"
-import { useRequireAnchor } from "./RequireAnchorContext"
-import {useHideColors} from "./HideColorsContext"
+import {useRequireJpCoatsOld} from './RequireJpCoatsOldContext'
+import {useRequireAnchor} from './RequireAnchorContext'
+import {useHideColors} from './HideColorsContext'
 
 export const Filters = () => {
   const {requireJpCoatsOld, setRequireJpCoatsOld} = useRequireJpCoatsOld()

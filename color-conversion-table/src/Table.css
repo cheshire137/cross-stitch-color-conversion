@@ -10,7 +10,9 @@ tr {
   page-break-inside: avoid;
 }
 
-table, tr, td {
+table,
+tr,
+td {
   border-collapse: collapse;
 }
 
