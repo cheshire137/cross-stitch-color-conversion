@@ -1,6 +1,7 @@
 import {TableRow} from './TableRow'
 import type {EmbroideryFlossColor} from './types'
 import { useHideColors } from './HideColorsContext'
+import './Table.css'
 
 interface TableProps {
   colors: EmbroideryFlossColor[]

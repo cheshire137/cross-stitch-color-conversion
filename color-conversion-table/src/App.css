@@ -10,12 +10,10 @@
   margin-left: 1in;
 }
 
-thead {
-  display: table-header-group;
-}
-
-tfoot {
-  display: table-footer-group;
+@media screen {
+  body {
+    margin: 2em;
+  }
 }
 
 @media print {

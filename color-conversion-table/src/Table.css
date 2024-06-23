@@ -1,0 +1,36 @@
+thead {
+  display: table-header-group;
+}
+
+tfoot {
+  display: table-footer-group;
+}
+
+tr {
+  page-break-inside: avoid;
+}
+
+table, tr, td {
+  border-collapse: collapse;
+}
+
+thead th,
+tbody td {
+  padding: 0.3em 0.6em;
+}
+
+thead tr,
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #efefef;
+}
+
+@media print {
+  tbody tr:nth-child(odd) {
+    background-color: #fff;
+    border-bottom: 1px solid #000;
+  }
+}
