@@ -1,8 +1,9 @@
 import type {EmbroideryFlossColor} from './types'
+import { useHideColors } from './HideColorsContext'
+import { useRequireAnchor } from './RequireAnchorContext'
+import {useRequireJpCoatsOld} from './RequireJpCoatsOldContext'
 
 interface TableRowProps extends EmbroideryFlossColor {
-  requireAnchor?: boolean
-  requireJpCoatsOld?: boolean
 }
 
 export const TableRow = ({
@@ -12,11 +13,14 @@ export const TableRow = ({
   jpCoatsOld,
   anchorCode,
   hexCode,
-  requireAnchor = false,
-  requireJpCoatsOld = false,
 }: TableRowProps) => {
+  const {requireJpCoatsOld} = useRequireJpCoatsOld()
+  const {hideColors} = useHideColors()
+  const {requireAnchor} = useRequireAnchor()
+
   if (requireAnchor && anchorCode === undefined) return null
   if (requireJpCoatsOld && jpCoatsOld === undefined) return null
+
   return (
     <tr>
       <td>{dmcCode}</td>
@@ -24,7 +28,7 @@ export const TableRow = ({
       <td>{jpCoatsOld}</td>
       <td>{jpCoatsNew}</td>
       <td>{anchorCode}</td>
-      <td style={{backgroundColor: hexCode}}></td>
+      {!hideColors && <td style={{backgroundColor: hexCode}}></td>}
     </tr>
   )
 }
