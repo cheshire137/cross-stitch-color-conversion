@@ -9,6 +9,7 @@ import {RequireJpCoatsOldProvider} from './RequireJpCoatsOldContext'
 import {Table} from './Table'
 import {Filters} from './Filters'
 import {RequireAnchorProvider} from './RequireAnchorContext'
+import {chunkArray} from './utils'
 
 function App() {
   const dataByDmcCode = useMemo<Record<string, EmbroideryFlossColor>>(() => {
@@ -28,6 +29,7 @@ function App() {
     () => Object.values(dataByDmcCode),
     [dataByDmcCode]
   )
+  const colorChunks = useMemo(() => chunkArray(colors, Math.round(colors.length / 2)), [colors])
   return (
     <>
       <h1>Embroidery floss color conversion</h1>
@@ -35,7 +37,9 @@ function App() {
         <RequireJpCoatsOldProvider>
           <RequireAnchorProvider>
             <Filters />
-            <Table colors={colors} />
+            {colorChunks.map((colorsInChunk, index) => (
+              <Table key={`${index}-${colorsInChunk.length}`} colors={colorsInChunk} />
+            ))}
           </RequireAnchorProvider>
         </RequireJpCoatsOldProvider>
       </HideColorsProvider>
