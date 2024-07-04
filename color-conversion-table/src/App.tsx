@@ -11,6 +11,7 @@ import {Table} from './Table'
 import {Filters} from './Filters'
 import {RequireAnchorProvider} from './RequireAnchorContext'
 import {chunkArray} from './utils'
+import {Header} from './Header'
 
 function App() {
   const dataByDmcCode = useMemo<Record<string, EmbroideryFlossColor>>(() => {
@@ -34,7 +35,7 @@ function App() {
   return (
     <ThemeProvider colorMode="day" theme={theme}>
       <BaseStyles>
-        <h1>Embroidery floss color conversion</h1>
+        <Header />
         <HideColorsProvider>
           <RequireJpCoatsOldProvider>
             <RequireAnchorProvider>
