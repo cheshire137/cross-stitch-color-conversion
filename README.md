@@ -3,6 +3,8 @@ Useful cross stitch tools I collect, plus eventually photos of my projects.
 
 ## Printer-friendly color conversion table
 
+![screenshot of color conversion table page](./color-conversion-table/screenshot.png)
+
 ### How to develop
 
 ```sh
