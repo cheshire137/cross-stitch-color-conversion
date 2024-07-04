@@ -1,3 +1,4 @@
+import deepmerge from 'deepmerge'
 import {BaseStyles, PageLayout, ThemeProvider, theme} from '@primer/react'
 import type {PropsWithChildren} from 'react'
 import './App.css'
@@ -7,6 +8,7 @@ import {RequireAnchorProvider} from './RequireAnchorContext'
 import {ColorsProvider} from './ColorsContext'
 import {Header} from './Header'
 import {FiltersAndTable} from './FiltersAndTable'
+import themeOverrides from './theme-overrides'
 
 const App = () => (
   <ProviderStack>
@@ -23,8 +25,10 @@ const App = () => (
   </ProviderStack>
 )
 
+const customTheme = deepmerge(theme, themeOverrides)
+
 const ProviderStack = ({children}: PropsWithChildren) => (
-  <ThemeProvider colorMode="day" theme={theme}>
+  <ThemeProvider colorMode="day" theme={customTheme}>
     <HideColorsProvider>
       <RequireJpCoatsOldProvider>
         <RequireAnchorProvider>
