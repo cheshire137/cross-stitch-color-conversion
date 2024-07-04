@@ -9,18 +9,36 @@ export const Filters = () => {
   const {requireAnchor, setRequireAnchor} = useRequireAnchor()
 
   return (
-    <Box as="fieldset" sx={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridGap: 1}} className="noprint">
+    <Box
+      as="fieldset"
+      sx={{
+        mb: 3,
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr 1fr',
+        gridGap: 1,
+      }}
+      className="noprint"
+    >
       <legend>Filters</legend>
       <FormControl>
-        <Checkbox checked={requireJpCoatsOld} onChange={() => setRequireJpCoatsOld(!requireJpCoatsOld)} />
+        <Checkbox
+          checked={requireJpCoatsOld}
+          onChange={() => setRequireJpCoatsOld(!requireJpCoatsOld)}
+        />
         <FormControl.Label>J&amp;P Coats (old)</FormControl.Label>
       </FormControl>
       <FormControl>
-        <Checkbox checked={requireAnchor} onChange={() => setRequireAnchor(!requireAnchor)} />
+        <Checkbox
+          checked={requireAnchor}
+          onChange={() => setRequireAnchor(!requireAnchor)}
+        />
         <FormControl.Label>Anchor</FormControl.Label>
       </FormControl>
       <FormControl>
-        <Checkbox checked={hideColors} onChange={() => setHideColors(!hideColors)} />
+        <Checkbox
+          checked={hideColors}
+          onChange={() => setHideColors(!hideColors)}
+        />
         <FormControl.Label>Hide colors</FormControl.Label>
       </FormControl>
     </Box>

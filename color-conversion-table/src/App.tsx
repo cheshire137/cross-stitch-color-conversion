@@ -25,15 +25,13 @@ const App = () => (
 
 const ProviderStack = ({children}: PropsWithChildren) => (
   <ThemeProvider colorMode="day" theme={theme}>
-    <ColorsProvider>
-      <HideColorsProvider>
-        <RequireJpCoatsOldProvider>
-          <RequireAnchorProvider>
-            {children}
-          </RequireAnchorProvider>
-        </RequireJpCoatsOldProvider>
-      </HideColorsProvider>
-    </ColorsProvider>
+    <HideColorsProvider>
+      <RequireJpCoatsOldProvider>
+        <RequireAnchorProvider>
+          <ColorsProvider>{children}</ColorsProvider>
+        </RequireAnchorProvider>
+      </RequireJpCoatsOldProvider>
+    </HideColorsProvider>
   </ThemeProvider>
 )
 
