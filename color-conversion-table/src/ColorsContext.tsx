@@ -3,8 +3,9 @@ import {useRequireAnchor} from './RequireAnchorContext'
 import {useRequireJpCoatsOld} from './RequireJpCoatsOldContext'
 import dmcNamedColorCodes from './assets/dmc-color-codes-names.json'
 import dmcOldNewJpCoatsColors from './assets/dmc-old-new-jp-coats-colors.json'
-import {normalizeDmcCode} from './utils'
+import {colorCompareFunction, normalizeDmcCode} from './utils'
 import type {EmbroideryFlossColor} from './types'
+import {useSort} from './SortContext'
 
 interface Colors {
   colors: EmbroideryFlossColor[]
@@ -15,6 +16,7 @@ const ColorsContext = createContext<Colors | undefined>(undefined)
 export const ColorsProvider = ({children}: PropsWithChildren) => {
   const {requireAnchor} = useRequireAnchor()
   const {requireJpCoatsOld} = useRequireJpCoatsOld()
+  const {sortOption} = useSort()
   const dataByDmcCode = useMemo<Record<string, EmbroideryFlossColor>>(() => {
     const result: Record<string, EmbroideryFlossColor> = {}
     dmcNamedColorCodes.forEach(data => {
@@ -34,13 +36,15 @@ export const ColorsProvider = ({children}: PropsWithChildren) => {
   )
   const contextProps = useMemo(
     () => ({
-      colors: colors.filter(({anchorCode, jpCoatsOld}) => {
-        if (requireAnchor && anchorCode === undefined) return false
-        if (requireJpCoatsOld && jpCoatsOld === undefined) return false
-        return true
-      }),
+      colors: colors
+        .filter(({anchorCode, jpCoatsOld}) => {
+          if (requireAnchor && anchorCode === undefined) return false
+          if (requireJpCoatsOld && jpCoatsOld === undefined) return false
+          return true
+        })
+        .sort(colorCompareFunction(sortOption)),
     }),
-    [colors, requireAnchor, requireJpCoatsOld]
+    [colors, requireAnchor, requireJpCoatsOld, sortOption]
   )
   return (
     <ColorsContext.Provider value={contextProps}>

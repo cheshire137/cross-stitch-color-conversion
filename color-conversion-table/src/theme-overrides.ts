@@ -3,7 +3,7 @@ const colors = {
     bg: '#ddd',
     text: '#000',
   },
-};
+}
 
 const themeOverrides = {
   colors,

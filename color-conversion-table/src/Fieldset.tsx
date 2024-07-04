@@ -7,7 +7,12 @@ interface FieldsetProps extends PropsWithChildren<BoxProps> {
   legend: string
 }
 
-export const Fieldset = ({children, legend, sx: customSx, ...props}: FieldsetProps) => {
+export const Fieldset = ({
+  children,
+  legend,
+  sx: customSx,
+  ...props
+}: FieldsetProps) => {
   let sx: SxProp['sx'] = {
     mb: 3,
     borderWidth: '1px',
@@ -22,7 +27,9 @@ export const Fieldset = ({children, legend, sx: customSx, ...props}: FieldsetPro
   if (customSx !== undefined) sx = deepmerge<SxProp['sx']>(sx, customSx)
   return (
     <Box as="fieldset" sx={sx} className="noprint" {...props}>
-      <Box as="legend" sx={{mb: 1, fontWeight: 'bold', ml: 0}}>{legend}</Box>
+      <Box as="legend" sx={{mb: 1, fontWeight: 'bold', ml: 0}}>
+        {legend}
+      </Box>
       {children}
     </Box>
   )

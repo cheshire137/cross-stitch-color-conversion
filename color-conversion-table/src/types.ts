@@ -6,3 +6,5 @@ export interface EmbroideryFlossColor {
   jpCoatsNew?: string
   anchorCode?: string
 }
+
+export type SortOption = 'dmcCode' | 'dmcName' | 'jpcOld' | 'anchor' | 'jpcNew'

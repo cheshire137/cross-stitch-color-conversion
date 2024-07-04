@@ -11,9 +11,9 @@ export const Filters = () => {
     <Fieldset
       legend="Filters"
       sx={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gridGap: 1,
+        display: 'flex',
+        gridGap: 3,
+        alignItems: 'center',
       }}
     >
       <FormControl>

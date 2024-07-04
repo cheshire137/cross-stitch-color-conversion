@@ -9,6 +9,7 @@ import {ColorsProvider} from './ColorsContext'
 import {Header} from './Header'
 import {FiltersAndTable} from './FiltersAndTable'
 import themeOverrides from './theme-overrides'
+import {SortProvider} from './SortContext'
 
 const App = () => (
   <ProviderStack>
@@ -32,7 +33,9 @@ const ProviderStack = ({children}: PropsWithChildren) => (
     <HideColorsProvider>
       <RequireJpCoatsOldProvider>
         <RequireAnchorProvider>
-          <ColorsProvider>{children}</ColorsProvider>
+          <SortProvider>
+            <ColorsProvider>{children}</ColorsProvider>
+          </SortProvider>
         </RequireAnchorProvider>
       </RequireJpCoatsOldProvider>
     </HideColorsProvider>
