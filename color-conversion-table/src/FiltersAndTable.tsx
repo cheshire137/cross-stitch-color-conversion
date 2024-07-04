@@ -1,4 +1,5 @@
 import {useMemo} from 'react'
+import {Box} from '@primer/react'
 import {Table} from './Table'
 import {Filters} from './Filters'
 import {chunkArray} from './utils'
@@ -13,12 +14,14 @@ export const FiltersAndTable = () => {
   return (
     <>
       <Filters />
-      {colorChunks.map((colorsInChunk, index) => (
-        <Table
-          key={`${index}-${colorsInChunk.length}`}
-          colors={colorsInChunk}
-        />
-      ))}
+      <Box sx={{display: 'grid', gridTemplateColumns: '1fr 1fr', gridGap: 3}}>
+        {colorChunks.map((colorsInChunk, index) => (
+          <Table
+            key={`${index}-${colorsInChunk.length}`}
+            colors={colorsInChunk}
+          />
+        ))}
+      </Box>
     </>
   )
 }
