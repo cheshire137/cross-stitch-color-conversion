@@ -1,4 +1,4 @@
-import {BaseStyles, ThemeProvider, theme} from '@primer/react'
+import {BaseStyles, PageLayout, ThemeProvider, theme} from '@primer/react'
 import type {PropsWithChildren} from 'react'
 import './App.css'
 import {HideColorsProvider} from './HideColorsContext'
@@ -11,8 +11,14 @@ import {FiltersAndTable} from './FiltersAndTable'
 const App = () => (
   <ProviderStack>
     <BaseStyles>
-      <Header />
-      <FiltersAndTable />
+      <PageLayout>
+        <PageLayout.Header>
+          <Header />
+        </PageLayout.Header>
+        <PageLayout.Content>
+          <FiltersAndTable />
+        </PageLayout.Content>
+      </PageLayout>
     </BaseStyles>
   </ProviderStack>
 )

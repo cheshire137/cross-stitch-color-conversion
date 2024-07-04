@@ -1,3 +1,4 @@
+import {Box, Checkbox, FormControl} from '@primer/react'
 import {useRequireJpCoatsOld} from './RequireJpCoatsOldContext'
 import {useRequireAnchor} from './RequireAnchorContext'
 import {useHideColors} from './HideColorsContext'
@@ -8,32 +9,20 @@ export const Filters = () => {
   const {requireAnchor, setRequireAnchor} = useRequireAnchor()
 
   return (
-    <fieldset className="noprint">
+    <Box as="fieldset" sx={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridGap: 1}} className="noprint">
       <legend>Filters</legend>
-      <label>
-        <input
-          checked={requireJpCoatsOld}
-          onChange={() => setRequireJpCoatsOld(!requireJpCoatsOld)}
-          type="checkbox"
-        />
-        J&amp;P Coats (old)
-      </label>
-      <label>
-        <input
-          checked={requireAnchor}
-          onChange={() => setRequireAnchor(!requireAnchor)}
-          type="checkbox"
-        />
-        Anchor
-      </label>
-      <label>
-        <input
-          checked={hideColors}
-          onChange={() => setHideColors(!hideColors)}
-          type="checkbox"
-        />
-        Hide colors
-      </label>
-    </fieldset>
+      <FormControl>
+        <Checkbox checked={requireJpCoatsOld} onChange={() => setRequireJpCoatsOld(!requireJpCoatsOld)} />
+        <FormControl.Label>J&amp;P Coats (old)</FormControl.Label>
+      </FormControl>
+      <FormControl>
+        <Checkbox checked={requireAnchor} onChange={() => setRequireAnchor(!requireAnchor)} />
+        <FormControl.Label>Anchor</FormControl.Label>
+      </FormControl>
+      <FormControl>
+        <Checkbox checked={hideColors} onChange={() => setHideColors(!hideColors)} />
+        <FormControl.Label>Hide colors</FormControl.Label>
+      </FormControl>
+    </Box>
   )
 }

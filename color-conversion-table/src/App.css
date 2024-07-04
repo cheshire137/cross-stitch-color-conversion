@@ -1,5 +1,5 @@
 @page {
-  size: letter portrait;
+  size: letter landscape;
 }
 
 @page :left {
@@ -18,6 +18,6 @@
 
 @media print {
   .noprint {
-    display: none;
+    display: none !important;
   }
 }
