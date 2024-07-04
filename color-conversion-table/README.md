@@ -1,6 +1,6 @@
 ## Printer-friendly color conversion table
 
-![screenshot of color conversion table page](./color-conversion-table/screenshot.png)
+![screenshot of color conversion table page](./screenshot.png)
 
 ### How to develop
 
