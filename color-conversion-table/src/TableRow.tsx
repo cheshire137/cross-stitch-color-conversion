@@ -15,8 +15,8 @@ export const TableRow = ({
 
   return (
     <tr>
-      <td>{dmcCode}</td>
       <td>{dmcName}</td>
+      <td>{dmcCode}</td>
       <td>{jpCoatsOld ? jpCoatsOld : <>&mdash;</>}</td>
       <td>{jpCoatsNew ? jpCoatsNew : <>&mdash;</>}</td>
       <td>{anchorCode ? anchorCode : <>&mdash;</>}</td>
