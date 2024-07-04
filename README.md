@@ -5,15 +5,7 @@ Useful cross stitch tools I collect, plus eventually photos of my projects.
 
 ![screenshot of color conversion table page](./color-conversion-table/screenshot.png)
 
-### How to develop
-
-```sh
-cd color-conversion-table
-npm install
-npm run dev
-```
-
-Run `npm run format` to auto-format code.
+See [readme](./color-conversion-table/README.md) for dev instructions.
 
 ## Thanks
 
