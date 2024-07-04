@@ -1,3 +1,4 @@
+import {BaseStyles, ThemeProvider, theme} from '@primer/react'
 import {useMemo} from 'react'
 import dmcNamedColorCodes from './assets/dmc-color-codes-names.json'
 import dmcOldNewJpCoatsColors from './assets/dmc-old-new-jp-coats-colors.json'
@@ -31,19 +32,21 @@ function App() {
   )
   const colorChunks = useMemo(() => chunkArray(colors, Math.round(colors.length / 2)), [colors])
   return (
-    <>
-      <h1>Embroidery floss color conversion</h1>
-      <HideColorsProvider>
-        <RequireJpCoatsOldProvider>
-          <RequireAnchorProvider>
-            <Filters />
-            {colorChunks.map((colorsInChunk, index) => (
-              <Table key={`${index}-${colorsInChunk.length}`} colors={colorsInChunk} />
-            ))}
-          </RequireAnchorProvider>
-        </RequireJpCoatsOldProvider>
-      </HideColorsProvider>
-    </>
+    <ThemeProvider colorMode="day" theme={theme}>
+      <BaseStyles>
+        <h1>Embroidery floss color conversion</h1>
+        <HideColorsProvider>
+          <RequireJpCoatsOldProvider>
+            <RequireAnchorProvider>
+              <Filters />
+              {colorChunks.map((colorsInChunk, index) => (
+                <Table key={`${index}-${colorsInChunk.length}`} colors={colorsInChunk} />
+              ))}
+            </RequireAnchorProvider>
+          </RequireJpCoatsOldProvider>
+        </HideColorsProvider>
+      </BaseStyles>
+    </ThemeProvider>
   )
 }
 
