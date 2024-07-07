@@ -41,6 +41,7 @@ export const Table = ({colors}: TableProps) => {
     <table>
       <thead>
         <tr>
+          {!hideColors && <Box as="th" sx={{width: '31px'}} aria-label="Color" rowSpan={2}>&nbsp;</Box>}
           <Box as="th" colSpan={2}>
             DMC
           </Box>
@@ -48,7 +49,6 @@ export const Table = ({colors}: TableProps) => {
             J&amp;P Coats
           </Box>
           <th rowSpan={2}>Anchor</th>
-          {!hideColors && <th rowSpan={2}>Color</th>}
         </tr>
         <tr>
           <Box as="th" sx={{textAlign: 'left'}}>

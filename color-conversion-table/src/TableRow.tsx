@@ -66,6 +66,7 @@ export const TableRow = ({
 
   return (
     <Box as="tr" sx={rowStyles}>
+      {!hideColors && <td style={{backgroundColor: hexCode}}></td>}
       <td>{dmcName}</td>
       <Box as="td" sx={codeCellStyles}>
         {dmcCode}
@@ -77,7 +78,6 @@ export const TableRow = ({
         {jpCoatsNew ? jpCoatsNew : emptyCellContent}
       </Box>
       <Box as="td" sx={codeCellStyles}>{anchorCode ? anchorCode : emptyCellContent}</Box>
-      {!hideColors && <td style={{backgroundColor: hexCode}}></td>}
     </Box>
   )
 }
