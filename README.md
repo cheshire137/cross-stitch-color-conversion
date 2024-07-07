@@ -1,11 +1,19 @@
-# cross-stitch
-Useful cross stitch tools I collect, plus eventually photos of my projects.
-
 ## Printer-friendly color conversion table
 
-![screenshot of color conversion table page](./color-conversion-table/screenshot.png)
+![screenshot of color conversion table page](./screenshot.png)
 
-See [readme](./color-conversion-table/README.md) for dev instructions.
+### How to develop
+
+```sh
+npm install
+npm run dev
+```
+
+Other commands:
+
+- Auto-format code: `npm run format`
+- Run TypeScript type checker: `npm run tsc`
+- Build the app and deploy to GitHub Pages: `./deploy.sh`
 
 ## Thanks
 
