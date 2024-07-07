@@ -1,5 +1,7 @@
 ## Printer-friendly cross stitch floss color conversion table
 
+See [releases](https://github.com/cheshire137/cross-stitch-color-conversion/releases) for downloadable PDFs in black and white and color format.
+
 ![screenshot of color conversion table page](./screenshot.png)
 
 ### How to develop
@@ -13,7 +15,6 @@ Other commands:
 
 - Auto-format code: `npm run format`
 - Run TypeScript type checker: `npm run tsc`
-- Build the app and deploy to GitHub Pages: `./deploy.sh`
 
 ## Thanks
 
