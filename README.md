@@ -1,4 +1,4 @@
-## Printer-friendly color conversion table
+## Printer-friendly cross stitch floss color conversion table
 
 ![screenshot of color conversion table page](./screenshot.png)
 
