@@ -1,10 +1,10 @@
 import {Checkbox, FormControl} from '@primer/react'
 import {Fieldset} from './Fieldset'
-import {useRequireJpCoatsOld} from './RequireJpCoatsOldContext'
+import {useRequireJpCoats} from './RequireJpCoatsContext'
 import {useRequireAnchor} from './RequireAnchorContext'
 
 export const Filters = () => {
-  const {requireJpCoatsOld, setRequireJpCoatsOld} = useRequireJpCoatsOld()
+  const {requireJpCoats, setRequireJpCoats} = useRequireJpCoats()
   const {requireAnchor, setRequireAnchor} = useRequireAnchor()
 
   return (
@@ -18,10 +18,10 @@ export const Filters = () => {
     >
       <FormControl>
         <Checkbox
-          checked={requireJpCoatsOld}
-          onChange={() => setRequireJpCoatsOld(!requireJpCoatsOld)}
+          checked={requireJpCoats}
+          onChange={() => setRequireJpCoats(!requireJpCoats)}
         />
-        <FormControl.Label>J&amp;P Coats (old)</FormControl.Label>
+        <FormControl.Label>J&amp;P Coats</FormControl.Label>
       </FormControl>
       <FormControl>
         <Checkbox

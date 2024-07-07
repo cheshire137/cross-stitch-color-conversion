@@ -5,7 +5,9 @@ export const SortMenu = () => {
   const {sortOption: currentSortOption, setSortOption} = useSort()
   return (
     <ActionMenu>
-      <ActionMenu.Button>Sort by: {sortLabels[currentSortOption]}</ActionMenu.Button>
+      <ActionMenu.Button>
+        Sort by: {sortLabels[currentSortOption]}
+      </ActionMenu.Button>
       <ActionMenu.Overlay width="small">
         <ActionList selectionVariant="single">
           {sortOptions.map(sortOption => (

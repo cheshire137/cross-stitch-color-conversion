@@ -3,7 +3,7 @@ import {BaseStyles, PageLayout, ThemeProvider, theme} from '@primer/react'
 import type {PropsWithChildren} from 'react'
 import './App.css'
 import {HideColorsProvider} from './HideColorsContext'
-import {RequireJpCoatsOldProvider} from './RequireJpCoatsOldContext'
+import {RequireJpCoatsProvider} from './RequireJpCoatsContext'
 import {RequireAnchorProvider} from './RequireAnchorContext'
 import {ColorsProvider} from './ColorsContext'
 import {Header} from './Header'
@@ -31,13 +31,13 @@ const customTheme = deepmerge(theme, themeOverrides)
 const ProviderStack = ({children}: PropsWithChildren) => (
   <ThemeProvider colorMode="day" theme={customTheme}>
     <HideColorsProvider>
-      <RequireJpCoatsOldProvider>
+      <RequireJpCoatsProvider>
         <RequireAnchorProvider>
           <SortProvider>
             <ColorsProvider>{children}</ColorsProvider>
           </SortProvider>
         </RequireAnchorProvider>
-      </RequireJpCoatsOldProvider>
+      </RequireJpCoatsProvider>
     </HideColorsProvider>
   </ThemeProvider>
 )
