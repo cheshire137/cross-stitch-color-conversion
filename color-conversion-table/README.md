@@ -9,4 +9,8 @@ npm install
 npm run dev
 ```
 
-Run `npm run format` to auto-format code.
+Other commands:
+
+- Auto-format code: `npm run format`
+- Run TypeScript type checker: `npm run tsc`
+- Build the app and deploy to GitHub Pages: `./deploy.sh`
