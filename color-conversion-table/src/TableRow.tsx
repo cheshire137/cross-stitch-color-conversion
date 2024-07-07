@@ -8,7 +8,10 @@ interface TableRowProps extends EmbroideryFlossColor {
   isOdd: boolean
 }
 
-export const codeCellStyles: SxProp['sx'] = {textAlign: 'center'}
+export const codeCellStyles: SxProp['sx'] = {
+  textAlign: 'center',
+  whiteSpace: 'nowrap',
+}
 
 export const jpCoatsCellStyles = deepmerge<SxProp['sx']>(
   {
@@ -55,6 +58,9 @@ export const TableRow = ({
     borderColor: primerPrimitives.colors.light.border.default,
     '&:nth-of-type(even)': {
       backgroundColor: primerPrimitives.colors.light.canvas.subtle,
+    },
+    '@media print': {
+      backgroundColor: 'white',
     },
   }
 
