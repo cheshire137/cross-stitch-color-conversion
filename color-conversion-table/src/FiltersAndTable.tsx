@@ -9,7 +9,7 @@ import {useColors} from './ColorsContext'
 export const FiltersAndTable = () => {
   const {colors} = useColors()
   const colorChunks = useMemo(
-    () => chunkArray(colors, Math.round(colors.length / 2)),
+    () => chunkArray(colors, Math.ceil(colors.length / 2)),
     [colors]
   )
   return (

@@ -3,11 +3,11 @@
 }
 
 @page :left {
-  margin-left: 1in;
+  margin-left: 0.75in;
 }
 
 @page :right {
-  margin-left: 1in;
+  margin-left: 0.75in;
 }
 
 @media screen {
@@ -17,6 +17,14 @@
 }
 
 @media print {
+  a::after {
+    content: " (" attr(href) ")";
+  }
+
+  body {
+    font-size: 14px;
+  }
+
   .noprint {
     display: none !important;
   }
