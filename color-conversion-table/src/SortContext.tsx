@@ -8,19 +8,19 @@ import {
 import type {SortOption} from './types'
 
 export const sortOptions: SortOption[] = [
+  'anchor',
   'dmcCode',
   'dmcName',
-  'jpcOld',
-  'anchor',
   'jpcNew',
+  'jpcOld',
 ]
 
 export const sortLabels: Record<SortOption, string> = {
-  dmcCode: 'DMC Code',
-  dmcName: 'DMC Name',
-  jpcOld: 'J&P Coats (old)',
-  anchor: 'Anchor',
-  jpcNew: 'J&P Coats (new)',
+  dmcCode: 'DMC code',
+  dmcName: 'DMC name',
+  jpcOld: 'J&P Coats code (old)',
+  anchor: 'Anchor code',
+  jpcNew: 'J&P Coats code (new)',
 }
 
 interface Sort {
