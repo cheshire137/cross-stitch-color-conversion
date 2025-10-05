@@ -9,7 +9,7 @@ const RequireJpCoatsContext = createContext<RequireJpCoats | undefined>(undefine
 
 export const RequireJpCoatsProvider = ({children}: PropsWithChildren) => {
   const [requireJpCoats, setRequireJpCoats] = useState(false)
-  const contextProps = useMemo(() => ({requireJpCoats, setRequireJpCoats}), [requireJpCoats, setRequireJpCoats])
+  const contextProps = useMemo(() => ({requireJpCoats, setRequireJpCoats}), [requireJpCoats])
   return <RequireJpCoatsContext.Provider value={contextProps}>{children}</RequireJpCoatsContext.Provider>
 }
 

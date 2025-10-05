@@ -9,7 +9,7 @@ const RequireAnchorContext = createContext<RequireAnchor | undefined>(undefined)
 
 export function RequireAnchorProvider({children}: PropsWithChildren) {
   const [requireAnchor, setRequireAnchor] = useState(false)
-  const contextProps = useMemo(() => ({requireAnchor, setRequireAnchor}), [requireAnchor, setRequireAnchor])
+  const contextProps = useMemo(() => ({requireAnchor, setRequireAnchor}), [requireAnchor])
   return <RequireAnchorContext.Provider value={contextProps}>{children}</RequireAnchorContext.Provider>
 }
 

@@ -36,3 +36,14 @@
     display: none !important;
   }
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: rect(0 0 0 0);
+  overflow-wrap: normal;
+  border: 0;
+}

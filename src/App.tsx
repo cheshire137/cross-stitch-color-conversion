@@ -12,6 +12,7 @@ import {Header} from './Header'
 import {FiltersAndTable} from './FiltersAndTable'
 import themeOverrides from './theme-overrides'
 import {SortProvider} from './SortContext'
+import {SearchContextProvider} from './contexts/SearchContextProvider'
 
 const App = () => (
   <ProviderStack>
@@ -37,7 +38,9 @@ const ProviderStack = ({children}: PropsWithChildren) => (
         <RequireAnchorProvider>
           <RequireCosmoProvider>
             <SortProvider>
-              <ColorsProvider>{children}</ColorsProvider>
+              <SearchContextProvider>
+                <ColorsProvider>{children}</ColorsProvider>
+              </SearchContextProvider>
             </SortProvider>
           </RequireCosmoProvider>
         </RequireAnchorProvider>

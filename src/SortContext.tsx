@@ -21,7 +21,7 @@ const SortContext = createContext<Sort | undefined>(undefined)
 
 export function SortProvider({children}: PropsWithChildren) {
   const [sortOption, setSortOption] = useState<SortOption>('dmcCode')
-  const contextProps = useMemo(() => ({sortOption, setSortOption}), [sortOption, setSortOption])
+  const contextProps = useMemo(() => ({sortOption, setSortOption}), [sortOption])
   return <SortContext.Provider value={contextProps}>{children}</SortContext.Provider>
 }
 
