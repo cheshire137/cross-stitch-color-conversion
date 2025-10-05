@@ -1,4 +1,5 @@
-.codeCell, .jpCoatsCell {
+.codeCell,
+.jpCoatsCell {
   text-align: center;
   white-space: nowrap;
 }

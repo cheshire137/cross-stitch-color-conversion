@@ -8,7 +8,9 @@ export function Search() {
   return (
     <div className="searchControls">
       <ActionMenu>
-        <ActionMenu.Button><span className="sr-only">Search by</span> {sortLabels[field]}</ActionMenu.Button>
+        <ActionMenu.Button>
+          <span className="sr-only">Search by</span> {sortLabels[field]}
+        </ActionMenu.Button>
         <ActionMenu.Overlay width="small">
           <ActionList selectionVariant="single">
             {sortOptions.map(searchOption => (
