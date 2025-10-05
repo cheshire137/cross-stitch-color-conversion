@@ -1,36 +1,17 @@
-import deepmerge from 'deepmerge'
-import {Box, type BoxProps, type SxProp} from '@primer/react'
+import {clsx} from 'clsx'
 import type {PropsWithChildren} from 'react'
-import primerPrimitives from '@primer/primitives'
+import './Fieldset.css'
 
-interface FieldsetProps extends PropsWithChildren<BoxProps> {
+interface FieldsetProps extends PropsWithChildren {
   legend: string
+  className?: string
 }
 
-export const Fieldset = ({
-  children,
-  legend,
-  sx: customSx,
-  ...props
-}: FieldsetProps) => {
-  let sx: SxProp['sx'] = {
-    mb: 3,
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderRadius: 2,
-    borderColor: primerPrimitives.colors.light.scale.gray[2],
-    pt: 1,
-    pb: 2,
-    px: 3,
-    mt: -1,
-  }
-  if (customSx !== undefined) sx = deepmerge<SxProp['sx']>(sx, customSx)
+export function Fieldset({className, children, legend}: FieldsetProps) {
   return (
-    <Box as="fieldset" sx={sx} className="noprint" {...props}>
-      <Box as="legend" sx={{mb: 1, fontWeight: 'bold', ml: 0}}>
-        {legend}
-      </Box>
+    <fieldset className={clsx('fieldset noprint', className)}>
+      <legend className="legend">{legend}</legend>
       {children}
-    </Box>
+    </fieldset>
   )
 }

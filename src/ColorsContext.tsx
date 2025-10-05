@@ -46,20 +46,13 @@ export function ColorsProvider({children}: PropsWithChildren) {
     })
     return result
   }, [])
-  const colors = useMemo<EmbroideryFlossColor[]>(
-    () => Object.values(dataByDmcCode),
-    [dataByDmcCode]
-  )
+  const colors = useMemo<EmbroideryFlossColor[]>(() => Object.values(dataByDmcCode), [dataByDmcCode])
   const contextProps = useMemo(
     () => ({
       colors: colors
         .filter(({anchorCode, cosmoCodes, jpCoatsOld, jpCoatsNew}) => {
           if (requireAnchor && anchorCode === undefined) return false
-          if (
-            requireJpCoats &&
-            jpCoatsOld === undefined &&
-            jpCoatsNew === undefined
-          ) {
+          if (requireJpCoats && jpCoatsOld === undefined && jpCoatsNew === undefined) {
             return false
           }
           if (requireCosmo && (cosmoCodes === undefined || cosmoCodes.length < 1)) {
@@ -71,11 +64,7 @@ export function ColorsProvider({children}: PropsWithChildren) {
     }),
     [colors, requireAnchor, requireCosmo, requireJpCoats, sortOption]
   )
-  return (
-    <ColorsContext.Provider value={contextProps}>
-      {children}
-    </ColorsContext.Provider>
-  )
+  return <ColorsContext.Provider value={contextProps}>{children}</ColorsContext.Provider>
 }
 
 export function useColors() {

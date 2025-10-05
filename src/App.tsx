@@ -1,6 +1,7 @@
 import deepmerge from 'deepmerge'
 import {BaseStyles, PageLayout, ThemeProvider, theme} from '@primer/react'
 import type {PropsWithChildren} from 'react'
+import '@primer/primitives/dist/css/functional/themes/light.css'
 import './App.css'
 import {HideColorsProvider} from './HideColorsContext'
 import {RequireJpCoatsProvider} from './RequireJpCoatsContext'

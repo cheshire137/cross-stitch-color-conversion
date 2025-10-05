@@ -1,0 +1,42 @@
+.codeCell, .jpCoatsCell {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.jpCoatsCell {
+  border-color: var(--border);
+}
+
+.jpCoatsCell.evenRow {
+  background-color: var(--subtleBg);
+}
+
+.jpCoatsCell.oddRow {
+  background-color: var(--mutedBg);
+}
+
+.jpCoatsOldCell {
+  border-left: 1px solid var(--border);
+}
+
+.jpCoatsNewCell {
+  border-right: 1px solid var(--border);
+}
+
+.emptyCell {
+  color: var(--mutedFg);
+}
+
+.tableRow {
+  border-top: 1px solid var(--border);
+}
+
+.tableRow:nth-of-type(even) {
+  background-color: var(--subtleBg);
+}
+
+@media print {
+  .tableRow {
+    background-color: white;
+  }
+}

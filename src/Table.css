@@ -20,3 +20,29 @@ thead th,
 tbody td {
   padding: 0.2em 0.4em;
 }
+
+.jpCoatsHeader {
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background-color: var(--subtleBg);
+}
+
+.jpCoatsOldHeader {
+  border-left: 1px solid var(--border);
+  text-align: left;
+  background-color: var(--subtleBg);
+}
+
+.jpCoatsNewHeader {
+  border-right: 1px solid var(--border);
+  text-align: left;
+  background-color: var(--subtleBg);
+}
+
+.nameHeader {
+  text-align: left;
+}
+
+.colorHeader {
+  width: 31px;
+}

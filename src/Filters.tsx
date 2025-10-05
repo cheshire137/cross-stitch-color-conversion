@@ -3,6 +3,7 @@ import {Fieldset} from './Fieldset'
 import {useRequireJpCoats} from './RequireJpCoatsContext'
 import {useRequireAnchor} from './RequireAnchorContext'
 import {useRequireCosmo} from './contexts/cosmo-context'
+import './Filters.css'
 
 export const Filters = () => {
   const {requireJpCoats, setRequireJpCoats} = useRequireJpCoats()
@@ -10,33 +11,17 @@ export const Filters = () => {
   const {requireCosmo, setRequireCosmo} = useRequireCosmo()
 
   return (
-    <Fieldset
-      legend="Filters"
-      sx={{
-        display: 'flex',
-        gridGap: 3,
-        alignItems: 'center',
-      }}
-    >
+    <Fieldset legend="Filters" className="filtersFieldset">
       <FormControl>
-        <Checkbox
-          checked={requireAnchor}
-          onChange={() => setRequireAnchor(!requireAnchor)}
-        />
+        <Checkbox checked={requireAnchor} onChange={() => setRequireAnchor(!requireAnchor)} />
         <FormControl.Label>Anchor</FormControl.Label>
       </FormControl>
       <FormControl>
-        <Checkbox
-          checked={requireCosmo}
-          onChange={() => setRequireCosmo(!requireCosmo)}
-        />
+        <Checkbox checked={requireCosmo} onChange={() => setRequireCosmo(!requireCosmo)} />
         <FormControl.Label>Cosmo</FormControl.Label>
       </FormControl>
       <FormControl>
-        <Checkbox
-          checked={requireJpCoats}
-          onChange={() => setRequireJpCoats(!requireJpCoats)}
-        />
+        <Checkbox checked={requireJpCoats} onChange={() => setRequireJpCoats(!requireJpCoats)} />
         <FormControl.Label>J&amp;P Coats</FormControl.Label>
       </FormControl>
     </Fieldset>

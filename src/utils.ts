@@ -15,10 +15,7 @@ export const chunkArray = <T>(array: T[], size: number): T[][] => {
 
 const isPositiveInteger = (str: string) => /^\d+$/.test(str)
 
-export function numericishStringCompare(
-  a: string | undefined,
-  b: string | undefined
-) {
+export function numericishStringCompare(a: string | undefined, b: string | undefined) {
   if (a === undefined) return -1
   if (b === undefined) return 1
   if (isPositiveInteger(a) && isPositiveInteger(b)) {
@@ -49,20 +46,12 @@ function cosmoCodeCompare(
   return numericishStringCompare(cosmoCodes1?.[0], cosmoCodes2?.[0])
 }
 
-const dmcCodeCompare = (
-  {dmcCode: dmcCode1}: EmbroideryFlossColor,
-  {dmcCode: dmcCode2}: EmbroideryFlossColor
-) => {
+const dmcCodeCompare = ({dmcCode: dmcCode1}: EmbroideryFlossColor, {dmcCode: dmcCode2}: EmbroideryFlossColor) => {
   return numericishStringCompare(dmcCode1, dmcCode2)
 }
 
-const dmcNameCompare = (
-  {dmcName: dmcName1}: EmbroideryFlossColor,
-  {dmcName: dmcName2}: EmbroideryFlossColor
-) => {
-  return dmcName1
-    .toLocaleLowerCase()
-    .localeCompare(dmcName2.toLocaleLowerCase())
+const dmcNameCompare = ({dmcName: dmcName1}: EmbroideryFlossColor, {dmcName: dmcName2}: EmbroideryFlossColor) => {
+  return dmcName1.toLocaleLowerCase().localeCompare(dmcName2.toLocaleLowerCase())
 }
 
 const anchorCodeCompare = (

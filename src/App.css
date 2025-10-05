@@ -1,3 +1,10 @@
+:root {
+  --mutedFg: #8b949e;
+  --mutedBg: #f0f3f6;
+  --border: #d0d7de;
+  --subtleBg: #f6f8fa;
+}
+
 @page {
   size: letter landscape;
 }

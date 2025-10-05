@@ -1,10 +1,4 @@
-import {
-  createContext,
-  type PropsWithChildren,
-  useContext,
-  useMemo,
-  useState,
-} from 'react'
+import {createContext, type PropsWithChildren, useContext, useMemo, useState} from 'react'
 
 interface RequireAnchor {
   requireAnchor: boolean
@@ -15,22 +9,12 @@ const RequireAnchorContext = createContext<RequireAnchor | undefined>(undefined)
 
 export function RequireAnchorProvider({children}: PropsWithChildren) {
   const [requireAnchor, setRequireAnchor] = useState(false)
-  const contextProps = useMemo(
-    () => ({requireAnchor, setRequireAnchor}),
-    [requireAnchor, setRequireAnchor]
-  )
-  return (
-    <RequireAnchorContext.Provider value={contextProps}>
-      {children}
-    </RequireAnchorContext.Provider>
-  )
+  const contextProps = useMemo(() => ({requireAnchor, setRequireAnchor}), [requireAnchor, setRequireAnchor])
+  return <RequireAnchorContext.Provider value={contextProps}>{children}</RequireAnchorContext.Provider>
 }
 
 export function useRequireAnchor() {
   const context = useContext(RequireAnchorContext)
-  if (context === undefined)
-    throw new Error(
-      'useRequireAnchor must be used within a RequireAnchorProvider'
-    )
+  if (context === undefined) throw new Error('useRequireAnchor must be used within a RequireAnchorProvider')
   return context
 }
