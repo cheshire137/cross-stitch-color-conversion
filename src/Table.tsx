@@ -49,6 +49,7 @@ export const Table = ({colors}: TableProps) => {
             J&amp;P Coats
           </Box>
           <th rowSpan={2}>Anchor</th>
+          <th rowSpan={2}>Cosmo</th>
         </tr>
         <tr>
           <Box as="th" sx={{textAlign: 'left'}}>

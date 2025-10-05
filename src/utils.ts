@@ -42,6 +42,13 @@ const numericishStringCompare = (
   return a.localeCompare(b)
 }
 
+function cosmoCodeCompare(
+  {cosmoCode: cosmoCode1}: EmbroideryFlossColor,
+  {cosmoCode: cosmoCode2}: EmbroideryFlossColor
+) {
+  return numericishStringCompare(cosmoCode1, cosmoCode2)
+}
+
 const dmcCodeCompare = (
   {dmcCode: dmcCode1}: EmbroideryFlossColor,
   {dmcCode: dmcCode2}: EmbroideryFlossColor
@@ -84,5 +91,6 @@ export const colorCompareFunction = (sortOption: SortOption) => {
   if (sortOption === 'jpcOld') return jpCoatsOldCompare
   if (sortOption === 'anchor') return anchorCodeCompare
   if (sortOption === 'jpcNew') return jpCoatsNewCompare
+  if (sortOption === 'cosmo') return cosmoCodeCompare
   return dmcCodeCompare
 }

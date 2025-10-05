@@ -3,6 +3,7 @@ import {useRequireAnchor} from './RequireAnchorContext'
 import {useRequireJpCoats} from './RequireJpCoatsContext'
 import dmcNamedColorCodes from './assets/dmc-color-codes-names.json'
 import dmcNewJpCoatsColors from './assets/dmc-old-new-jp-coats-colors.json'
+import dmcCosmoColors from './assets/dmc-cosmo-colors.json'
 import {colorCompareFunction, normalizeDmcCode} from './utils'
 import type {EmbroideryFlossColor} from './types'
 import {useSort} from './SortContext'
@@ -13,7 +14,7 @@ interface Colors {
 
 const ColorsContext = createContext<Colors | undefined>(undefined)
 
-export const ColorsProvider = ({children}: PropsWithChildren) => {
+export function ColorsProvider({children}: PropsWithChildren) {
   const {requireAnchor} = useRequireAnchor()
   const {requireJpCoats} = useRequireJpCoats()
   const {sortOption} = useSort()
@@ -28,8 +29,14 @@ export const ColorsProvider = ({children}: PropsWithChildren) => {
         result[key] = {...result[key], ...data}
       }
     })
+    dmcCosmoColors.forEach(data => {
+      const key = normalizeDmcCode(data.dmcCode)
+      if (result[key]) {
+        result[key] = {...result[key], ...data}
+      }
+    })
     return result
-  }, [dmcNamedColorCodes, dmcNewJpCoatsColors])
+  }, [])
   const colors = useMemo<EmbroideryFlossColor[]>(
     () => Object.values(dataByDmcCode),
     [dataByDmcCode]
@@ -59,7 +66,7 @@ export const ColorsProvider = ({children}: PropsWithChildren) => {
   )
 }
 
-export const useColors = () => {
+export function useColors() {
   const context = useContext(ColorsContext)
   if (context === undefined) {
     throw new Error('useColors must be used within a ColorsProvider')

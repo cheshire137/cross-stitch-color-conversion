@@ -9,6 +9,7 @@ import type {SortOption} from './types'
 
 export const sortOptions: SortOption[] = [
   'anchor',
+  'cosmo',
   'dmcCode',
   'dmcName',
   'jpcNew',
@@ -16,6 +17,7 @@ export const sortOptions: SortOption[] = [
 ]
 
 export const sortLabels: Record<SortOption, string> = {
+  cosmo: 'Cosmo code',
   dmcCode: 'DMC code',
   dmcName: 'DMC name',
   jpcOld: 'J&P Coats code (old)',
@@ -30,7 +32,7 @@ interface Sort {
 
 const SortContext = createContext<Sort | undefined>(undefined)
 
-export const SortProvider = ({children}: PropsWithChildren) => {
+export function SortProvider({children}: PropsWithChildren) {
   const [sortOption, setSortOption] = useState<SortOption>('dmcCode')
   const contextProps = useMemo(
     () => ({sortOption, setSortOption}),
@@ -41,7 +43,7 @@ export const SortProvider = ({children}: PropsWithChildren) => {
   )
 }
 
-export const useSort = () => {
+export function useSort() {
   const context = useContext(SortContext)
   if (context === undefined)
     throw new Error('useSort must be used within a SortProvider')
