@@ -15,10 +15,10 @@ export const chunkArray = <T>(array: T[], size: number): T[][] => {
 
 const isPositiveInteger = (str: string) => /^\d+$/.test(str)
 
-const numericishStringCompare = (
+export function numericishStringCompare(
   a: string | undefined,
   b: string | undefined
-) => {
+) {
   if (a === undefined) return -1
   if (b === undefined) return 1
   if (isPositiveInteger(a) && isPositiveInteger(b)) {
@@ -43,10 +43,10 @@ const numericishStringCompare = (
 }
 
 function cosmoCodeCompare(
-  {cosmoCode: cosmoCode1}: EmbroideryFlossColor,
-  {cosmoCode: cosmoCode2}: EmbroideryFlossColor
+  {cosmoCodes: cosmoCodes1}: EmbroideryFlossColor,
+  {cosmoCodes: cosmoCodes2}: EmbroideryFlossColor
 ) {
-  return numericishStringCompare(cosmoCode1, cosmoCode2)
+  return numericishStringCompare(cosmoCodes1?.[0], cosmoCodes2?.[0])
 }
 
 const dmcCodeCompare = (

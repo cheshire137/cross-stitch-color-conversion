@@ -27,7 +27,7 @@ const emptyCellContent = (
 )
 
 export const TableRow = ({
-  cosmoCode,
+  cosmoCodes,
   dmcCode,
   dmcName,
   isOdd,
@@ -79,7 +79,7 @@ export const TableRow = ({
         {jpCoatsNew ? jpCoatsNew : emptyCellContent}
       </Box>
       <Box as="td" sx={codeCellStyles}>{anchorCode ? anchorCode : emptyCellContent}</Box>
-      <Box as="td" sx={codeCellStyles}>{cosmoCode ? cosmoCode : emptyCellContent}</Box>
+      <Box as="td" sx={codeCellStyles}>{cosmoCodes ? (<span>{cosmoCodes.join(', ')}</span>) : emptyCellContent}</Box>
     </Box>
   )
 }

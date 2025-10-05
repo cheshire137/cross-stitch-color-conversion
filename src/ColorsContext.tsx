@@ -4,7 +4,7 @@ import {useRequireJpCoats} from './RequireJpCoatsContext'
 import dmcNamedColorCodes from './assets/dmc-color-codes-names.json'
 import dmcNewJpCoatsColors from './assets/dmc-old-new-jp-coats-colors.json'
 import dmcCosmoColors from './assets/dmc-cosmo-colors.json'
-import {colorCompareFunction, normalizeDmcCode} from './utils'
+import {colorCompareFunction, normalizeDmcCode, numericishStringCompare} from './utils'
 import type {EmbroideryFlossColor} from './types'
 import {useSort} from './SortContext'
 
@@ -32,7 +32,14 @@ export function ColorsProvider({children}: PropsWithChildren) {
     dmcCosmoColors.forEach(data => {
       const key = normalizeDmcCode(data.dmcCode)
       if (result[key]) {
-        result[key] = {...result[key], ...data}
+        const newValue = {...result[key]}
+        if (newValue.cosmoCodes === undefined) {
+          newValue.cosmoCodes = [data.cosmoCode]
+        } else {
+          newValue.cosmoCodes.push(data.cosmoCode)
+          newValue.cosmoCodes.sort(numericishStringCompare)
+        }
+        result[key] = newValue
       }
     })
     return result
