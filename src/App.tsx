@@ -5,6 +5,7 @@ import './App.css'
 import {HideColorsProvider} from './HideColorsContext'
 import {RequireJpCoatsProvider} from './RequireJpCoatsContext'
 import {RequireAnchorProvider} from './RequireAnchorContext'
+import {RequireCosmoProvider} from './contexts/RequireCosmoProvider'
 import {ColorsProvider} from './ColorsContext'
 import {Header} from './Header'
 import {FiltersAndTable} from './FiltersAndTable'
@@ -33,9 +34,11 @@ const ProviderStack = ({children}: PropsWithChildren) => (
     <HideColorsProvider>
       <RequireJpCoatsProvider>
         <RequireAnchorProvider>
-          <SortProvider>
-            <ColorsProvider>{children}</ColorsProvider>
-          </SortProvider>
+          <RequireCosmoProvider>
+            <SortProvider>
+              <ColorsProvider>{children}</ColorsProvider>
+            </SortProvider>
+          </RequireCosmoProvider>
         </RequireAnchorProvider>
       </RequireJpCoatsProvider>
     </HideColorsProvider>

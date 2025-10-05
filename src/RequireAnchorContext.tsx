@@ -13,7 +13,7 @@ interface RequireAnchor {
 
 const RequireAnchorContext = createContext<RequireAnchor | undefined>(undefined)
 
-export const RequireAnchorProvider = ({children}: PropsWithChildren) => {
+export function RequireAnchorProvider({children}: PropsWithChildren) {
   const [requireAnchor, setRequireAnchor] = useState(false)
   const contextProps = useMemo(
     () => ({requireAnchor, setRequireAnchor}),
@@ -26,7 +26,7 @@ export const RequireAnchorProvider = ({children}: PropsWithChildren) => {
   )
 }
 
-export const useRequireAnchor = () => {
+export function useRequireAnchor() {
   const context = useContext(RequireAnchorContext)
   if (context === undefined)
     throw new Error(

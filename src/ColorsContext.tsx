@@ -1,6 +1,7 @@
 import {createContext, type PropsWithChildren, useContext, useMemo} from 'react'
 import {useRequireAnchor} from './RequireAnchorContext'
 import {useRequireJpCoats} from './RequireJpCoatsContext'
+import {useRequireCosmo} from './contexts/cosmo-context'
 import dmcNamedColorCodes from './assets/dmc-color-codes-names.json'
 import dmcNewJpCoatsColors from './assets/dmc-old-new-jp-coats-colors.json'
 import dmcCosmoColors from './assets/dmc-cosmo-colors.json'
@@ -17,6 +18,7 @@ const ColorsContext = createContext<Colors | undefined>(undefined)
 export function ColorsProvider({children}: PropsWithChildren) {
   const {requireAnchor} = useRequireAnchor()
   const {requireJpCoats} = useRequireJpCoats()
+  const {requireCosmo} = useRequireCosmo()
   const {sortOption} = useSort()
   const dataByDmcCode = useMemo<Record<string, EmbroideryFlossColor>>(() => {
     const result: Record<string, EmbroideryFlossColor> = {}
@@ -51,7 +53,7 @@ export function ColorsProvider({children}: PropsWithChildren) {
   const contextProps = useMemo(
     () => ({
       colors: colors
-        .filter(({anchorCode, jpCoatsOld, jpCoatsNew}) => {
+        .filter(({anchorCode, cosmoCodes, jpCoatsOld, jpCoatsNew}) => {
           if (requireAnchor && anchorCode === undefined) return false
           if (
             requireJpCoats &&
@@ -60,11 +62,14 @@ export function ColorsProvider({children}: PropsWithChildren) {
           ) {
             return false
           }
+          if (requireCosmo && (cosmoCodes === undefined || cosmoCodes.length < 1)) {
+            return false
+          }
           return true
         })
         .sort(colorCompareFunction(sortOption)),
     }),
-    [colors, requireAnchor, requireJpCoats, sortOption]
+    [colors, requireAnchor, requireCosmo, requireJpCoats, sortOption]
   )
   return (
     <ColorsContext.Provider value={contextProps}>
